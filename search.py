@@ -13,13 +13,14 @@ by Pacman agents (in searchAgents.py).
 
 import util
 
-class SearchProblem:
-  """
-  This class outlines the structure of a search problem, but doesn't implement
-  any of the methods (in object-oriented terminology: an abstract class).
 
-  You do not need to change anything in this class, ever.
-  """
+class SearchProblem:
+    """
+    This class outlines the structure of a search problem, but doesn't implement
+    any of the methods (in object-oriented terminology: an abstract class).
+
+    You do not need to change anything in this class, ever.
+    """
 
     def getStartState(self):
         """
@@ -35,7 +36,7 @@ class SearchProblem:
         """
         util.raiseNotDefined()
 
-     def getSuccessors(self, state):
+    def getSuccessors(self, state):
         """
         state: Search state
 
@@ -47,25 +48,25 @@ class SearchProblem:
         """
         util.raiseNotDefined()
 
-     def getCostOfActions(self, actions):
-         """
-          actions: A list of actions to take
+    def getCostOfActions(self, actions):
+        """
+        actions: A list of actions to take
 
-         This method returns the total cost of a particular sequence of actions.  The sequence must
-         be composed of legal moves
-         """
-         util.raiseNotDefined()
+        This method returns the total cost of a particular sequence of actions.  The sequence must
+        be composed of legal moves
+        """
+        util.raiseNotDefined()
 
 
 def tinyMazeSearch(problem):
-      """
-      Returns a sequence of moves that solves tinyMaze.  For any other
-      maze, the sequence of moves will be incorrect, so only use this for tinyMaze
-      """
-      from game import Directions
-      s = Directions.SOUTH
-      w = Directions.WEST
-      return  [s,s,w,s,w,w,s,w]
+    """
+    Returns a sequence of moves that solves tinyMaze.  For any other
+    maze, the sequence of moves will be incorrect, so only use this for tinyMaze
+    """
+    from game import Directions
+    s = Directions.SOUTH
+    w = Directions.WEST
+    return  [s,s,w,s,w,w,s,w]
 
 def search_fn(search, heuristic, problem):
     if search == 'dfs':
@@ -81,9 +82,9 @@ def search_fn(search, heuristic, problem):
         def add_to_fringe_fn(fringe, node, cost):
             fringe.push(node, cost)
         fringe = util.PriorityQueue()
-    elif search = 'a*':
+    elif search == 'a*':
         def add_to_fringe_fn(fringe, node, cost):
-            new_cost = cost + heuristic(state[0], problem)
+            new_cost = cost + heuristic(node[0], problem)
             fringe.push(node, new_cost)
         fringe = util.PriorityQueue()
     else:
